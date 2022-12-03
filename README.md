@@ -3,6 +3,7 @@
 <hr>
 <div align="center" style="display:flex;flex-direction:column;">
   <h3>A simple hand-drawn task and project planner.<br>Inspired from your favorite drawing tool Excalidraw</h3>
+  <img src="https://img.shields.io/static/v1?label=Status&message=Under%20development&color=red">
   <p>Start using it on <a target="_blank" href="https://www.sketchaplan.com/">sketchaplan.com</a>.</p>
 </div>
 
