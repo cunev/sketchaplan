@@ -1,4 +1,4 @@
-import p5 from "p5";
+import p5, { File } from "p5";
 import { Block, selectedBlock } from "./elements/block";
 import { addAsset } from "./primitives/assets";
 import { Camera } from "./primitives/camera";
@@ -6,6 +6,7 @@ import { p, setP } from "./primitives/p5";
 import { loadCanvas, redo, saveCanvas, undo } from "./primitives/serialize";
 import { setVirgilFont } from "./primitives/virgil";
 import Stats from "stats.js";
+import { ImageBlock } from "./elements/image";
 
 export const _app = new p5((p5Instance) => {
 	setP(p5Instance);
@@ -19,7 +20,9 @@ export const _app = new p5((p5Instance) => {
 	stats.showPanel(0);
 
 	p.setup = function setup() {
-		p.createCanvas(this.windowWidth, this.windowHeight);
+		const canvas = p.createCanvas(this.windowWidth, this.windowHeight);
+		canvas.drop(handleDrop);
+		canvas.parent(document.body);
 		p.frameRate(120);
 		loadCanvas();
 		this.noSmooth();
@@ -43,7 +46,7 @@ export const _app = new p5((p5Instance) => {
 		stats.end();
 	};
 	p.mousePressed = (event: MouseEvent) => {
-		if ((event.target as HTMLDivElement).id != "content") return;
+		if ((event.target as HTMLDivElement).id != "defaultCanvas0") return;
 
 		if (event.button == 1) {
 			Camera.startDeltaPos();
@@ -89,4 +92,10 @@ export const _app = new p5((p5Instance) => {
 		}
 		saveCanvas();
 	};
+	function handleDrop(file: File) {
+		if (file.type == "image") {
+			const createdBlock = new ImageBlock();
+			createdBlock.attachFile(file.data);
+		}
+	}
 });

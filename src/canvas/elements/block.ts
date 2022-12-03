@@ -14,6 +14,7 @@ export enum BlockType {
 	Task,
 	Group,
 	Text,
+	Image,
 }
 
 export abstract class Block {
@@ -33,6 +34,7 @@ export abstract class Block {
 	locked: boolean = false;
 	inDrag = false;
 	dragDeltaPosition: Vector2 = { x: 0, y: 0 };
+	isSelected: boolean = false;
 
 	static all: Block[] = [];
 	static map: Map<string, Block> = new Map<string, Block>();
@@ -74,21 +76,25 @@ export abstract class Block {
 			if (this.locked) {
 				return;
 			}
+			if (this.handleDragStart()) {
+				return;
+			}
 			this.inDrag = true;
 			this.dragDeltaPosition = {
 				x: this.position.x - Camera.mouseX,
 				y: this.position.y - Camera.mouseY,
 			};
-			this.handleDragStart();
 		}
 	}
 
 	mouseReleased() {
 		this.inDrag = false;
+		this.handleMouseRelease();
 	}
 
 	drawSelection() {
 		if (selectedBlock.getState().block == this) {
+			this.isSelected = true;
 			p.push();
 			p.noFill();
 			p.stroke("#6965db");
@@ -96,8 +102,10 @@ export abstract class Block {
 			p.drawingContext.setLineDash([10, 4]);
 			p.rect(this.position.x, this.position.y, this.size.x, this.size.y);
 			p.pop();
+		} else {
+			this.isSelected = false;
 		}
 	}
-	abstract handleDragStart(): void;
+	abstract handleDragStart(): boolean | void;
 	abstract handleMouseRelease(): void;
 }
