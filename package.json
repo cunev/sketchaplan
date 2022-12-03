@@ -1,0 +1,41 @@
+{
+  "name": "excaliplan",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.13",
+    "@preact/signals-react": "^1.2.1",
+    "@types/p5": "^1.4.3",
+    "@types/serialize-javascript": "^5.0.2",
+    "@types/stats.js": "^0.17.0",
+    "@types/uuid": "^9.0.0",
+    "buffer": "^6.0.3",
+    "p5": "^1.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "roughjs": "^4.5.2",
+    "serialize-javascript": "^6.0.0",
+    "serialize-to-js": "^3.1.2",
+    "serializr": "^3.0.1",
+    "stats.js": "^0.17.0",
+    "ts-keycode-enum": "^1.0.6",
+    "uuid": "^9.0.0",
+    "zustand": "^4.1.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
+  }
+}

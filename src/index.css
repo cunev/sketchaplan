@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Virgil';
+  font-style: normal;
+  font-weight: 400;
+  src: url("Virgil.woff2") format('woff2');
+}
+
+#root {
+  font-family: 'Assistant', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  width: 100vw;
+  height: 100vh;
+
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+
+#defaultCanvas0{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
