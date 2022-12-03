@@ -6,6 +6,7 @@ import { p, setP } from "./primitives/p5";
 import { loadCanvas, redo, saveCanvas, undo } from "./primitives/serialize";
 import { setVirgilFont } from "./primitives/virgil";
 import Stats from "stats.js";
+import { ImageBlock } from "./elements/image";
 
 export const _app = new p5((p5Instance) => {
 	setP(p5Instance);
@@ -91,5 +92,10 @@ export const _app = new p5((p5Instance) => {
 		}
 		saveCanvas();
 	};
-	function handleDrop(file: File) {}
+	function handleDrop(file: File) {
+		if (file.type == "image") {
+			const createdBlock = new ImageBlock();
+			createdBlock.attachFile(file.data);
+		}
+	}
 });

@@ -14,6 +14,7 @@ export enum BlockType {
 	Task,
 	Group,
 	Text,
+	Image,
 }
 
 export abstract class Block {

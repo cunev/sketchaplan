@@ -1,5 +1,6 @@
 import { Block, BlockType } from "../elements/block";
 import { Group } from "../elements/group";
+import { ImageBlock } from "../elements/image";
 import { Task } from "../elements/task";
 import { TextBlock } from "../elements/text";
 import { defaultCanvas } from "./defaultCanvas";
@@ -64,6 +65,9 @@ export function loadCanvas(canvas?: string) {
 					break;
 				case BlockType.Text:
 					createdBlock = new TextBlock();
+					break;
+				case BlockType.Image:
+					createdBlock = new ImageBlock();
 					break;
 			}
 			for (const entry of Object.entries(block)) {
