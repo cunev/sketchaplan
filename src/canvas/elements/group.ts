@@ -103,7 +103,7 @@ export class Group extends Block {
 		this.texture.pop();
 	}
 
-	handleDragStart(): void {}
+	handleDragStart(): boolean | void {}
 
 	handleMouseRelease(): void {}
 }
