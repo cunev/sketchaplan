@@ -3,7 +3,7 @@
 <hr>
 <div align="center" style="display:flex;flex-direction:column;">
   <h3>A simple hand-drawn task and project planner.<br>Inspired from your favorite drawing tool Excalidraw</h3>
-  <p>Start using it on <a target="_blank" href="https://sketchaplan.com">sketchaplan.com</a>.</p>
+  <p>Start using it on <a target="_blank" href="https://www.sketchaplan.com/">sketchaplan.com</a>.</p>
 </div>
 
 ## Concept
