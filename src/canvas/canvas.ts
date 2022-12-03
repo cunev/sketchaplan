@@ -88,6 +88,7 @@ export const _app = new p5((p5Instance) => {
 			if (currentSelected) {
 				const currentIndex = Block.all.indexOf(currentSelected);
 				Block.all.splice(currentIndex, 1);
+				Block.map.delete(currentSelected.id);
 			}
 		}
 		saveCanvas();

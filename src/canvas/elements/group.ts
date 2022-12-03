@@ -66,7 +66,7 @@ export class Group extends Block {
 			.map((e) => Block.map.get(e)! as Task)
 			.sort((a, b) => a.position.y - b.position.y)
 			.forEach((task) => {
-				if (!task) return;
+				if (!task || !Block.map.has(task.id)) return;
 				if (!task.inDrag) {
 					task.position = {
 						x: this.position.x + 25,
