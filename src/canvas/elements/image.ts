@@ -29,6 +29,7 @@ export class ImageBlock extends Block {
 			this.size.y = this.size.x / this.ratio;
 		}
 		if (assets.has(this.id)) {
+			p.smooth();
 			p.image(
 				assets.get(this.id)!,
 				this.position.x,
@@ -36,6 +37,7 @@ export class ImageBlock extends Block {
 				this.size.x,
 				this.size.y
 			);
+			p.noSmooth();
 			this.drawScaleButton();
 		} else if (this.imageData) {
 			this.attachFile(this.imageData);
