@@ -83,10 +83,10 @@ export abstract class Block {
   mousePressed(selectionInfluence: boolean) {
     if (this.cursorInside() || selectionInfluence) {
       if (this.locked) {
-        return;
+        return true;
       }
       if (this.handleDragStart()) {
-        return;
+        return true;
       }
       this.inDrag = true;
       this.dragDistance = 0;
