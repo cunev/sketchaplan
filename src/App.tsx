@@ -83,7 +83,7 @@ function TaskEditor({ block }: { block: Task }) {
           value={block.name}
           onChange={(event) => {
             block.name = event.target.value;
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
         />
       </div>
@@ -95,7 +95,7 @@ function TaskEditor({ block }: { block: Task }) {
           value={block.description}
           onChange={(event) => {
             block.setDescription(event.target.value);
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
         />
       </div>
@@ -105,7 +105,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.priority = "S";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.priority == "S"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -115,7 +115,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.priority = "M";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.priority == "M"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -125,7 +125,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.priority = "L";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.priority == "L"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -135,7 +135,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.priority = "XL";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.priority == "XL"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -150,7 +150,7 @@ function TaskEditor({ block }: { block: Task }) {
         <button
           onClick={() => {
             block.locked = !block.locked;
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
           className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
         >
@@ -163,7 +163,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.decoration = "";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.decoration == ""}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
@@ -173,7 +173,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.decoration = "checked.png";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.decoration == "checked.png"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
@@ -183,7 +183,7 @@ function TaskEditor({ block }: { block: Task }) {
           <button
             onClick={() => {
               block.decoration = "canceled.png";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.decoration == "canceled.png"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
@@ -209,7 +209,7 @@ function TextEditor({ block }: { block: TextBlock }) {
           value={block.name}
           onChange={(event) => {
             block.name = event.target.value;
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
         />
       </div>
@@ -221,7 +221,7 @@ function TextEditor({ block }: { block: TextBlock }) {
             onClick={() => {
               block.textSize = 18;
 
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.textSize == 18}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -231,7 +231,7 @@ function TextEditor({ block }: { block: TextBlock }) {
           <button
             onClick={() => {
               block.textSize = 24;
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.textSize == 24}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -241,7 +241,7 @@ function TextEditor({ block }: { block: TextBlock }) {
           <button
             onClick={() => {
               block.textSize = 32;
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.textSize == 32}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -251,7 +251,7 @@ function TextEditor({ block }: { block: TextBlock }) {
           <button
             onClick={() => {
               block.textSize = 48;
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.textSize == 48}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-8 h-8 flex items-center justify-center"
@@ -266,7 +266,7 @@ function TextEditor({ block }: { block: TextBlock }) {
         <button
           onClick={() => {
             block.locked = !block.locked;
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
           className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
         >
@@ -290,7 +290,7 @@ function GroupEditor({ block }: { block: Group }) {
           value={block.name}
           onChange={(event) => {
             block.name = event.target.value;
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
         />
       </div>
@@ -301,7 +301,7 @@ function GroupEditor({ block }: { block: Group }) {
         <button
           onClick={() => {
             block.locked = !block.locked;
-            selection.setState(selection);
+            selection.setState({ ...selection.getState() });
           }}
           className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
         >
@@ -314,7 +314,7 @@ function GroupEditor({ block }: { block: Group }) {
           <button
             onClick={() => {
               block.autoDecoration = null;
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.autoDecoration === null}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
@@ -324,7 +324,7 @@ function GroupEditor({ block }: { block: Group }) {
           <button
             onClick={() => {
               block.autoDecoration = "";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.autoDecoration === ""}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
@@ -334,7 +334,7 @@ function GroupEditor({ block }: { block: Group }) {
           <button
             onClick={() => {
               block.autoDecoration = "checked.png";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.autoDecoration == "checked.png"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
@@ -344,7 +344,7 @@ function GroupEditor({ block }: { block: Group }) {
           <button
             onClick={() => {
               block.autoDecoration = "canceled.png";
-              selection.setState(selection);
+              selection.setState({ ...selection.getState() });
             }}
             disabled={block.autoDecoration == "canceled.png"}
             className="border-[1px] disabled:bg-gray-100 rounded-md border-gray-300 bg-white hover:bg-gray-100 w-full h-8 flex items-center justify-center"
