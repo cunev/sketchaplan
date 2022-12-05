@@ -39,7 +39,7 @@ These instructions will get you a copy of the project up and running on your loc
 #### Clone the repo
 
 ```bash
-git clone https://github.com/excalidraw/excalidraw.git
+git clone https://github.com/sketchaplan/sketchaplan.git
 ```
 
 #### Install the dependencies
