@@ -18,6 +18,9 @@ Initially, Sketchaplan was developed to plan small scale projects for my univers
 - **Alt+Wheel** - Zoom
 - **Middle Mouse** - Move canvas camera
 - **Drag n' Drop** - Add image
+- **CTRL+Left Click** - Select multiple
+
+![](https://i.imgur.com/hynoU02.gif)
 
 ## Development
 Sketchaplan is powered by Vite and P5 and runs on HTML5 Canvas + React.
