@@ -116,13 +116,16 @@ export const _app = new p5((p5Instance) => {
       return;
     }
     if (event.ctrlKey || event.metaKey || event.shiftKey) return;
-    if (event.code == "Backspace" && event.target == document.body) {
-      //   const currentSelected = selectedBlock.getState().block;
-      //   if (currentSelected) {
-      //     const currentIndex = Block.all.indexOf(currentSelected);
-      //     Block.all.splice(currentIndex, 1);
-      //     Block.map.delete(currentSelected.id);
-      //   }
+    if (
+      event.code == "Backspace" ||
+      (event.code == "Delete" && event.target == document.body)
+    ) {
+      const selectedBlocks = selection.getState().blocks;
+      selectedBlocks.forEach((block) => {
+        const currentIndex = Block.all.indexOf(block);
+        Block.all.splice(currentIndex, 1);
+        Block.map.delete(block.id);
+      });
     }
     saveCanvas();
   };
