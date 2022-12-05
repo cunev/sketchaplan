@@ -41,7 +41,12 @@ export class Group extends Block {
     const selectedBlocks = selection.getState().blocks;
 
     for (const dragBlock of selectedBlocks) {
-      if (dragBlock && dragBlock.inDrag && dragBlock !== this) {
+      if (
+        dragBlock &&
+        dragBlock.dragDistance > 5 &&
+        dragBlock.inDrag &&
+        dragBlock !== this
+      ) {
         if (
           this.cursorInside() &&
           dragBlock.type == BlockType.Task &&

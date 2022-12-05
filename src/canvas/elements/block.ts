@@ -22,7 +22,9 @@ export abstract class Block {
   abstract order: number;
   abstract draw(): void;
   abstract renderTexture(): void;
+  private lastPosition: Vector2 = { x: 0, y: 0 };
 
+  dragDistance: number = 0;
   size: Vector2 = { x: 0, y: 0 };
   position: Vector2 = {
     x: -Camera.position.x - 200,
@@ -48,6 +50,16 @@ export abstract class Block {
       this.position = {
         x: Camera.mouseX + this.dragDeltaPosition.x,
         y: Camera.mouseY + this.dragDeltaPosition.y,
+      };
+      this.dragDistance += p.dist(
+        this.position.x,
+        this.position.y,
+        this.lastPosition.x,
+        this.lastPosition.y
+      );
+      this.lastPosition = {
+        x: this.position.x,
+        y: this.position.y,
       };
     }
     this.drawSelection();
@@ -77,6 +89,11 @@ export abstract class Block {
         return;
       }
       this.inDrag = true;
+      this.dragDistance = 0;
+      this.lastPosition = {
+        x: this.position.x,
+        y: this.position.y,
+      };
       this.dragDeltaPosition = {
         x: this.position.x - Camera.mouseX,
         y: this.position.y - Camera.mouseY,
