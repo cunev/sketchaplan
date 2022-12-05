@@ -20,7 +20,13 @@ Initially, Sketchaplan was developed to plan small scale projects for my univers
 - **Drag n' Drop** - Add image
 - **CTRL+Left Click** - Select multiple
 
+## Groups
+You can use groups to have a collection of tasks, just like in Trello!
 ![](https://i.imgur.com/hynoU02.gif)
+
+## Images
+You can drag and drop images into the canvas.
+![](https://i.imgur.com/6ot4UqH.gif)
 
 ## Development
 Sketchaplan is powered by Vite and P5 and runs on HTML5 Canvas + React.
