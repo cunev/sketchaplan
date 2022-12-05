@@ -13,6 +13,15 @@ it does not reflect the final state of the product.
 
 Initially, Sketchaplan was developed to plan small scale projects for my university, but since it might be useful to others, I decided to make it public and open-source.
 
+## Controls
+- **Delete** - Removes a block 
+- **Alt+Wheel** - Zoom
+- **Middle Mouse** - Move canvas camera
+- **Drag n' Drop** - Add image
+- **CTRL+Left Click** - Select multiple
+
+![](https://i.imgur.com/hynoU02.gif)
+
 ## Development
 Sketchaplan is powered by Vite and P5 and runs on HTML5 Canvas + React.
 > The project is **not** a fork and **not** affiliated with Excalidraw.
@@ -30,7 +39,7 @@ These instructions will get you a copy of the project up and running on your loc
 #### Clone the repo
 
 ```bash
-git clone https://github.com/excalidraw/excalidraw.git
+git clone https://github.com/sketchaplan/sketchaplan.git
 ```
 
 #### Install the dependencies
