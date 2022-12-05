@@ -11,6 +11,8 @@
 The goal of Sketchaplan is to provide an easy to use and simple task manager and/or project planner. Currently, the project is in **development** and
 it does not reflect the final state of the product.
 
+Initially, Sketchaplan was developed to plan small scale projects for my university, but since it might be useful to others, I decided to make it public and open-source.
+
 ## Development
 Sketchaplan is powered by Vite and P5 and runs on HTML5 Canvas + React.
 > The project is **not** a fork and **not** affiliated with Excalidraw.
