@@ -116,10 +116,7 @@ export const _app = new p5((p5Instance) => {
       return;
     }
     if (event.ctrlKey || event.metaKey || event.shiftKey) return;
-    if (
-      event.code == "Backspace" ||
-      (event.code == "Delete" && event.target == document.body)
-    ) {
+    if (event.code == "Delete" && event.target == document.body) {
       const selectedBlocks = selection.getState().blocks;
       selectedBlocks.forEach((block) => {
         const currentIndex = Block.all.indexOf(block);
