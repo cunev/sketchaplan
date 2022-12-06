@@ -5,6 +5,7 @@ import { Camera } from "../primitives/camera";
 import { Vector2 } from "../primitives/math";
 import { p } from "../primitives/p5";
 import { v4 } from "uuid";
+import { Group } from "./group";
 
 export const selection = create<{ blocks: Block[] }>(() => ({
   blocks: [],
@@ -19,11 +20,12 @@ export enum BlockType {
 
 export abstract class Block {
   abstract type: BlockType;
-  abstract order: number;
+  abstract reorder(): void;
   abstract draw(): void;
   abstract renderTexture(): void;
   private lastPosition: Vector2 = { x: 0, y: 0 };
 
+  order = Block.getNextOrder();
   dragDistance: number = 0;
   size: Vector2 = { x: 0, y: 0 };
   position: Vector2 = {
@@ -38,6 +40,12 @@ export abstract class Block {
   dragDeltaPosition: Vector2 = { x: 0, y: 0 };
   isSelected: boolean = false;
 
+  static getNextOrder() {
+    let order = Number(localStorage.getItem("order") || "1");
+    order++;
+    localStorage.setItem("order", order.toString());
+    return order;
+  }
   static all: Block[] = [];
   static map: Map<string, Block> = new Map<string, Block>();
   constructor() {
@@ -82,6 +90,7 @@ export abstract class Block {
 
   mousePressed(selectionInfluence: boolean) {
     if (this.cursorInside() || selectionInfluence) {
+      this.reorder();
       if (this.locked) {
         return true;
       }

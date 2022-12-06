@@ -34,4 +34,7 @@ export class TextBlock extends Block {
   renderTexture(): void {}
   handleDragStart(): void {}
   handleMouseRelease(): void {}
+  reorder(): void {
+    this.order = Block.getNextOrder();
+  }
 }

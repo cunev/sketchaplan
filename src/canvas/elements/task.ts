@@ -11,7 +11,6 @@ export type TaskPriority = "S" | "M" | "L" | "XL";
 
 export class Task extends Block {
   type = BlockType.Task;
-  order: number = 1;
   size: Vector2 = { x: 400, y: 110 };
   name: string = "A simple task";
   description: string = "";
@@ -156,4 +155,8 @@ export class Task extends Block {
   handleDragStart(): void {}
 
   handleMouseRelease(): void {}
+
+  reorder(): void {
+    this.order = Block.getNextOrder();
+  }
 }

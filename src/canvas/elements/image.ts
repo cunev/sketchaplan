@@ -105,4 +105,7 @@ export class ImageBlock extends Block {
   handleMouseRelease(): void {
     this.isResizing = false;
   }
+  reorder(): void {
+    this.order = Block.getNextOrder();
+  }
 }

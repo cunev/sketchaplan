@@ -9,7 +9,6 @@ import { createRoundedRectPath } from "../primitives/shapes";
 export class Group extends Block {
   type = BlockType.Group;
   name: string = "A simple group";
-  order: number = 0;
   size: Vector2 = { x: 460, y: 110 };
   description: string = "";
   children: string[] = [];
@@ -54,6 +53,7 @@ export class Group extends Block {
         ) {
           this.children.push((dragBlock as Task).id);
           dragBlock.position = this.position;
+          this.reorder();
         }
 
         if (
@@ -113,4 +113,14 @@ export class Group extends Block {
   handleDragStart(): boolean | void {}
 
   handleMouseRelease(): void {}
+
+  reorder(): void {
+    this.order = Block.getNextOrder();
+    for (let childId of this.children) {
+      const child = Block.map.get(childId);
+      if (child) {
+        child.order = Block.getNextOrder();
+      }
+    }
+  }
 }
