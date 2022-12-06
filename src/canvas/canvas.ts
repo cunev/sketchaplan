@@ -57,31 +57,30 @@ export const _app = new p5((p5Instance) => {
     const selectedBlocks = selection.getState().blocks;
     for (const block of Block.all.sort((a, b) => b.order - a.order)) {
       // Prevent click propagation to other elements
-      if (block.mousePressed(false)) {
-        const alreadySelected = selectedBlocks.includes(block);
+      if (!block.mousePressed(false)) continue;
 
-        if (!event.ctrlKey && !alreadySelected) {
-          // If we're not holding CTRL and select a signle block, cancel all other.
-          selection.setState({ blocks: [] });
-        } else {
-          // else we need to force simulate clicks for ther elements as well
-          selectedBlocks.forEach((block) => block.mousePressed(true));
-        }
-
-        if (!alreadySelected) {
-          // If element wasn't previously selected, add it to selection
-          selection.setState(({ blocks }) => ({ blocks: [...blocks, block] }));
-        } else if (event.ctrlKey) {
-          // In case we click on a selected element again with CTRL, we need to remove it.
-          selection.setState(({ blocks }) => ({
-            blocks: blocks.filter((sBlock) => sBlock !== block),
-          }));
-        }
-
-        // Boolean flag, to know if any element was pressed
-        anySelect = true;
-        break;
+      const alreadySelected = selectedBlocks.includes(block);
+      if (!event.ctrlKey && !alreadySelected) {
+        // If we're not holding CTRL and select a signle block, cancel all other.
+        selection.setState({ blocks: [] });
+      } else {
+        // else we need to force simulate clicks for ther elements as well
+        selectedBlocks.forEach((block) => block.mousePressed(true));
       }
+
+      if (!alreadySelected) {
+        // If element wasn't previously selected, add it to selection
+        selection.setState(({ blocks }) => ({ blocks: [...blocks, block] }));
+      } else if (event.ctrlKey) {
+        // In case we click on a selected element again with CTRL, we need to remove it.
+        selection.setState(({ blocks }) => ({
+          blocks: blocks.filter((sBlock) => sBlock !== block),
+        }));
+      }
+
+      // Boolean flag, to know if any element was pressed
+      anySelect = true;
+      break;
     }
 
     if (!anySelect) {
