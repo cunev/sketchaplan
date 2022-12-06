@@ -3,7 +3,7 @@ import rough from "roughjs";
 import { Vector2 } from "../primitives/math";
 import { p } from "../primitives/p5";
 import { handText } from "../primitives/textGenerator";
-import { Block, BlockType, getNextOrder } from "./block";
+import { Block, BlockType } from "./block";
 import { assets } from "../primitives/assets";
 import { createRoundedRectPath } from "../primitives/shapes";
 
@@ -157,6 +157,6 @@ export class Task extends Block {
   handleMouseRelease(): void {}
 
   reorder(): void {
-    this.order = getNextOrder();
+    this.order = Block.getNextOrder();
   }
 }

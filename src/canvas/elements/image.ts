@@ -4,7 +4,7 @@ import { Camera } from "../primitives/camera";
 import { Vector2 } from "../primitives/math";
 import { p } from "../primitives/p5";
 import { handText } from "../primitives/textGenerator";
-import { Block, BlockType, getNextOrder } from "./block";
+import { Block, BlockType } from "./block";
 export type TaskPriority = "S" | "M" | "L" | "XL";
 
 export class ImageBlock extends Block {
@@ -106,6 +106,6 @@ export class ImageBlock extends Block {
     this.isResizing = false;
   }
   reorder(): void {
-    this.order = getNextOrder();
+    this.order = Block.getNextOrder();
   }
 }

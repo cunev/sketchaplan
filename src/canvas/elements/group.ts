@@ -2,7 +2,7 @@ import { Vector2 } from "../primitives/math";
 import { p } from "../primitives/p5";
 import rough from "roughjs";
 import { handText } from "../primitives/textGenerator";
-import { Block, BlockType, getNextOrder, selection } from "./block";
+import { Block, BlockType, selection } from "./block";
 import { Task } from "./task";
 import { createRoundedRectPath } from "../primitives/shapes";
 
@@ -115,11 +115,11 @@ export class Group extends Block {
   handleMouseRelease(): void {}
 
   reorder(): void {
-    this.order = getNextOrder();
+    this.order = Block.getNextOrder();
     for (let childId of this.children) {
       const child = Block.map.get(childId);
       if (child) {
-        child.order = getNextOrder();
+        child.order = Block.getNextOrder();
       }
     }
   }

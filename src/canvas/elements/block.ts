@@ -18,21 +18,14 @@ export enum BlockType {
   Image,
 }
 
-export function getNextOrder() {
-  let order = Number(localStorage.getItem("order") || "1");
-  order++;
-  localStorage.setItem("order", order.toString());
-  return order;
-}
-
 export abstract class Block {
   abstract type: BlockType;
   abstract reorder(): void;
-  order = getNextOrder();
   abstract draw(): void;
   abstract renderTexture(): void;
   private lastPosition: Vector2 = { x: 0, y: 0 };
 
+  order = Block.getNextOrder();
   dragDistance: number = 0;
   size: Vector2 = { x: 0, y: 0 };
   position: Vector2 = {
@@ -47,6 +40,12 @@ export abstract class Block {
   dragDeltaPosition: Vector2 = { x: 0, y: 0 };
   isSelected: boolean = false;
 
+  static getNextOrder() {
+    let order = Number(localStorage.getItem("order") || "1");
+    order++;
+    localStorage.setItem("order", order.toString());
+    return order;
+  }
   static all: Block[] = [];
   static map: Map<string, Block> = new Map<string, Block>();
   constructor() {
